@@ -1,5 +1,4 @@
-"use strict"
-import axios from 'axios';
+
 const key = "11934457-4993f38e20ffc9cd54235e1b7";
 const baseUrl = "https://pixabay.com/api/";
 
