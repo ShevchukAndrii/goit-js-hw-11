@@ -98,7 +98,7 @@ function handleSearchFormOnSubmit(event) {
 function handleMoreBtnClick() {
     page += 1;
     fetchPhotos(query, page, perPage).then(data => {
-        amountOfPages = Math.ceil(data.totalHits / perPage);
+        const amountOfPages = Math.ceil(data.totalHits / perPage);
         if (page === amountOfPages) {
             loadMoreBtnEl.classList.add('is-hidden');
             Notify.failure(
