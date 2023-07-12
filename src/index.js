@@ -97,7 +97,6 @@ function handleSearchFormOnSubmit(event) {
 
 function handleMoreBtnClick() {
     page += 1;
-    simpleLightBox.destroy();
     fetchPhotos(query, page, perPage).then(data => {
         amountOfPages = Math.ceil(data.totalHits / perPage);
         if (page === amountOfPages) {
