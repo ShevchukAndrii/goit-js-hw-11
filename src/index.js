@@ -3,7 +3,7 @@ import { fetchPhotos } from "./api.js";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-let simpleLightBox;
+let simpleLightBox = new SimpleLightbox('.gallery a');
 var query = "";
 var page = 1;
 const perPage = 40;
@@ -76,7 +76,7 @@ function handleSearchFormOnSubmit(event) {
             });
         } else {
             galleryListEl.innerHTML = createGallery(data.hits);
-            simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+            simpleLightBox.refresh();
             Notify.success(`Hooray! We found ${data.totalHits} images.`, {
             width: '300px',
             position: 'center-center',
@@ -111,7 +111,7 @@ function handleMoreBtnClick() {
             
     }
     galleryListEl.insertAdjacentHTML('beforeend', createGallery(data.hits));
-    simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+    simpleLightBox.refresh();
       }
     ).catch(onFetchError)
 
@@ -133,4 +133,5 @@ function onFetchError(error) {
         width: '600px',
         fontSize: '24px',
     });
+  console.log(error)
 };
