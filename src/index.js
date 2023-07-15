@@ -52,7 +52,11 @@ function createGallery(photos) {
 
 
 function handleSearchFormOnSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
+  if (!loadMoreBtnEl.classList.contains("is-hidden")) {
+    loadMoreBtnEl.classList.add("is-hidden");
+    console.log('есть');
+  }
     query = inputEl.value.trim();
     page = 1;
     if (!query) {
